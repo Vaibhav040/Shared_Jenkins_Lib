@@ -1,9 +1,5 @@
 def call(String scriptName, String workDir) {
-
-    withCredentials([[
-        $class: 'AmazonWebServicesCredentialsBinding',
-        credentialsId: 'aws-creds'
-    ]]) {
+    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-creds']]) {
 
         dir(workDir) {
             sh """
